@@ -62,6 +62,9 @@ namespace FoodOrderingSystem
                         // Credentials match
                         MessageBox.Show("Login successful!");
                         // Proceed to the next step (e.g., navigate to another form)
+                        Home home = new Home();
+                        home.Show();
+                        this.Hide();
                     }
                     else
                     {
