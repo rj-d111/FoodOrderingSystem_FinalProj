@@ -73,7 +73,7 @@ namespace FoodOrderingSystem
             // Apply rounded corners to non-client area
             const int DWMWA_WINDOW_CORNER_PREFERENCE = 33;
             int DWMWCP_ROUND = 2;
-          
+
             DwmSetWindowAttribute(Handle, DWMWA_WINDOW_CORNER_PREFERENCE, ref DWMWCP_ROUND, 4);
         }
     }

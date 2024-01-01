@@ -30,19 +30,22 @@ namespace FoodOrderingSystem
             }
         }
 
-        private void customButton1_Click(object sender, EventArgs e)
-        {
-            //Get the email and the password of the user
-            string stud  = txt_stud.Text;
-            string pass = txt_pass.Text;
+        //Create property for user
+        public static string User {  get; set; }
 
-            Connection con = new Connection();
-            SqlConnection sqlconn = new SqlConnection();
+             private void customButton1_Click(object sender, EventArgs e)
+            {
+                //Get the email and the password of the user
+                string stud = txt_stud.Text;
+                string pass = txt_pass.Text;
+
+                Connection con = new Connection();
+                SqlConnection sqlconn = new SqlConnection();
             sqlconn = con.GetConnection();
 
             try
             {
-                string query = "SELECT COUNT(*) FROM customer WHERE username = @stud AND password = @pass";
+                string query = "SELECT * FROM customer WHERE username = @stud AND password = @pass";
 
                 // Create a SqlCommand object to execute the query
                 using (SqlCommand command = new SqlCommand(query, sqlconn))
@@ -54,36 +57,40 @@ namespace FoodOrderingSystem
                     // Open the connection
                     sqlconn.Open();
 
-                    // Execute the query and get the count of matching rows
-                    int count = (int)command.ExecuteScalar();
 
-                    if (count > 0)
+                    // Assign the username to the public string User
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    da.Fill(dt);
+
+                    // Execute the query and get the username
+                    //string username = (string)command.ExecuteScalar();
+
+                    if (dt.Rows.Count > 0)
                     {
                         // Credentials match
                         MessageBox.Show("Login successful!");
+
+                        //Get the first name in the index 3
+                        User = dt.Rows[0]["fname"].ToString();
                         // Proceed to the next step (e.g., navigate to another form)
                         Home home = new Home();
-                        home.Show();
                         this.Hide();
+                        home.Show();
                     }
                     else
                     {
                         // Credentials don't match
                         MessageBox.Show("Invalid username or password.");
+                        }
                     }
                 }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                // Close the connection, even if an error occurred
-                sqlconn.Close();
-            }
-
-        }
+       
 
         private void Sign_up(object sender, EventArgs e)
         {

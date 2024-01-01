@@ -16,5 +16,27 @@ namespace FoodOrderingSystem
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            lbl_user.Text = Login.User;
+        }
+
+
+        private void CenterPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
