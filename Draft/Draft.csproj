@@ -149,6 +149,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Customer.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\pencil %281%29.png" />
     <EmbeddedResource Include="icons\adobo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
