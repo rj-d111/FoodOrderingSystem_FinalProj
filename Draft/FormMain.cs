@@ -171,25 +171,27 @@ namespace Draft
                 OrderModel.OrderTotal = TotalOrder;
                 OrderModel.OrderID = orderID;
 
-                MessageBox.Show("Order Total:" + OrderModel.OrderTotal + " OrderID" + OrderModel.OrderID);
+               MessageBox.Show("Order Total:" + OrderModel.OrderTotal);
             }
 
 
             foreach (DataGridViewRow items in grid.Rows)
             {
-                string StrQuery = "INSERT INTO order_items (orderID, menuItem, quantity, menuID) VALUES (@orderID, @menuItem, @quantity, @menuID)";
+                string StrQuery = "INSERT INTO order_items (orderID, menuItem, quantity, menuPrice, menuID) VALUES (@orderID, @menuItem, @quantity, @menuPrice, @menuID)";
 
                 int id = OrderModel.OrderID;
                 string cell0 = items.Cells[0].Value.ToString();
                 int cell1 = int.Parse(items.Cells[1].Value.ToString());
-                int cell2 =int.Parse(items.Cells[3].Value.ToString());
+                decimal cell2 = decimal.Parse(items.Cells[2].Value.ToString().Replace("₱", ""));
+                int cell3 =int.Parse(items.Cells[3].Value.ToString());
 
                 using (SqlCommand comm = new SqlCommand(StrQuery, conn2))
                 {
                     comm.Parameters.AddWithValue("@orderID", id);
                     comm.Parameters.AddWithValue("@menuItem", cell0);
                     comm.Parameters.AddWithValue("@quantity", cell1);
-                    comm.Parameters.AddWithValue("@menuID", cell2);
+                    comm.Parameters.AddWithValue("@menuPrice", cell2);
+                    comm.Parameters.AddWithValue("@menuID", cell3);
                     comm.ExecuteNonQuery();
                 }
             }
@@ -203,6 +205,8 @@ namespace Draft
 
         private void pnl_logout_Click(object sender, EventArgs e)
         {
+
+            
             // Display confirmation message
             if (MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -222,6 +226,9 @@ namespace Draft
         private void FormMain_Load(object sender, EventArgs e)
         {
             lbl_uName.Text = CustomerModel.Name;
+
+
+
         }
     }
 }

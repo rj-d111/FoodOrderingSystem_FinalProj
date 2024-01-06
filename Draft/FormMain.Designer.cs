@@ -31,22 +31,30 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbl_uName = new System.Windows.Forms.Label();
+            this.pnl_logout = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvdelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.customButton2 = new Draft.CustomControls.CustomButton();
             this.lbl_total = new System.Windows.Forms.Label();
@@ -55,23 +63,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.pnl_logout = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvdelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,6 +90,17 @@
             this.panel1.Size = new System.Drawing.Size(1119, 87);
             this.panel1.TabIndex = 3;
             // 
+            // panel10
+            // 
+            this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel10.BackgroundImage = global::Draft.Properties.Resources.user1;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel10.Location = new System.Drawing.Point(934, 32);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(27, 23);
+            this.panel10.TabIndex = 3;
+            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.lbl_uName);
@@ -113,9 +121,32 @@
             this.lbl_uName.TabIndex = 0;
             this.lbl_uName.Text = "User Name";
             // 
+            // pnl_logout
+            // 
+            this.pnl_logout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_logout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnl_logout.BackgroundImage = global::Draft.Properties.Resources.logout;
+            this.pnl_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnl_logout.Location = new System.Drawing.Point(1074, 28);
+            this.pnl_logout.Name = "pnl_logout";
+            this.pnl_logout.Size = new System.Drawing.Size(30, 27);
+            this.pnl_logout.TabIndex = 2;
+            this.pnl_logout.Click += new System.EventHandler(this.pnl_logout_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.BackgroundImage = global::Draft.Properties.Resources.grub_grab;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel2.Location = new System.Drawing.Point(472, 9);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(104, 71);
+            this.panel2.TabIndex = 1;
+            // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Maroon;
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
@@ -130,22 +161,34 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 51);
             this.panel3.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(8, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 21);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "➡️";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(40, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 21);
+            this.label1.Size = new System.Drawing.Size(102, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "All Items";
+            this.label1.Text = "Select Items";
             // 
             // panel4
             // 
@@ -159,69 +202,45 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(40, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.Size = new System.Drawing.Size(75, 21);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Breakfast";
+            this.label2.Text = "Checkout";
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.label14);
             this.panel5.Location = new System.Drawing.Point(3, 117);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(197, 51);
             this.panel5.TabIndex = 2;
             // 
-            // label3
+            // label14
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(40, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 21);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Lunch";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(40, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 21);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Success";
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.label4);
             this.panel6.Location = new System.Drawing.Point(3, 174);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(197, 51);
             this.panel6.TabIndex = 3;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(40, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 21);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Snacks";
-            // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.label5);
             this.panel7.Location = new System.Drawing.Point(3, 231);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(197, 51);
             this.panel7.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(40, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 21);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Drinks";
             // 
             // splitContainer1
             // 
@@ -297,6 +316,52 @@
             this.grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellValueChanged);
             this.grid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grid_RowsAdded);
             // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            // 
+            // Cost
+            // 
+            this.Cost.HeaderText = "Cost";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            // 
+            // menuID
+            // 
+            this.menuID.HeaderText = "menuID";
+            this.menuID.Name = "menuID";
+            this.menuID.Visible = false;
+            // 
+            // dgvedit
+            // 
+            this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvedit.FillWeight = 50F;
+            this.dgvedit.HeaderText = "";
+            this.dgvedit.Image = global::Draft.Properties.Resources.pencil__1_;
+            this.dgvedit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvedit.MinimumWidth = 50;
+            this.dgvedit.Name = "dgvedit";
+            this.dgvedit.Width = 50;
+            // 
+            // dgvdelete
+            // 
+            this.dgvdelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvdelete.FillWeight = 50F;
+            this.dgvdelete.HeaderText = "";
+            this.dgvdelete.Image = global::Draft.Properties.Resources.delete;
+            this.dgvdelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvdelete.MinimumWidth = 50;
+            this.dgvdelete.Name = "dgvdelete";
+            this.dgvdelete.Width = 50;
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.customButton2);
@@ -322,7 +387,7 @@
             this.customButton2.Name = "customButton2";
             this.customButton2.Size = new System.Drawing.Size(465, 46);
             this.customButton2.TabIndex = 4;
-            this.customButton2.Text = "Submit";
+            this.customButton2.Text = "Checkout";
             this.customButton2.TextColor = System.Drawing.Color.Empty;
             this.customButton2.UseVisualStyleBackColor = false;
             this.customButton2.Click += new System.EventHandler(this.SubmitButton_click);
@@ -334,9 +399,9 @@
             this.lbl_total.ForeColor = System.Drawing.Color.Black;
             this.lbl_total.Location = new System.Drawing.Point(392, 23);
             this.lbl_total.Name = "lbl_total";
-            this.lbl_total.Size = new System.Drawing.Size(69, 21);
+            this.lbl_total.Size = new System.Drawing.Size(51, 21);
             this.lbl_total.TabIndex = 3;
-            this.lbl_total.Text = "P180.00";
+            this.lbl_total.Text = "₱0.00";
             this.lbl_total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
@@ -403,86 +468,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 50;
             // 
-            // panel10
-            // 
-            this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel10.BackgroundImage = global::Draft.Properties.Resources.user1;
-            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel10.Location = new System.Drawing.Point(934, 32);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(27, 23);
-            this.panel10.TabIndex = 3;
-            // 
-            // pnl_logout
-            // 
-            this.pnl_logout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnl_logout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnl_logout.BackgroundImage = global::Draft.Properties.Resources.logout;
-            this.pnl_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnl_logout.Location = new System.Drawing.Point(1074, 28);
-            this.pnl_logout.Name = "pnl_logout";
-            this.pnl_logout.Size = new System.Drawing.Size(30, 27);
-            this.pnl_logout.TabIndex = 2;
-            this.pnl_logout.Click += new System.EventHandler(this.pnl_logout_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BackgroundImage = global::Draft.Properties.Resources.grub_grab;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(472, 9);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(104, 71);
-            this.panel2.TabIndex = 1;
-            // 
-            // Item
-            // 
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            this.Item.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            // 
-            // Cost
-            // 
-            this.Cost.HeaderText = "Cost";
-            this.Cost.Name = "Cost";
-            this.Cost.ReadOnly = true;
-            // 
-            // menuID
-            // 
-            this.menuID.HeaderText = "menuID";
-            this.menuID.Name = "menuID";
-            this.menuID.Visible = false;
-            // 
-            // dgvedit
-            // 
-            this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvedit.FillWeight = 50F;
-            this.dgvedit.HeaderText = "";
-            this.dgvedit.Image = global::Draft.Properties.Resources.pencil__1_;
-            this.dgvedit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvedit.MinimumWidth = 50;
-            this.dgvedit.Name = "dgvedit";
-            this.dgvedit.Width = 50;
-            // 
-            // dgvdelete
-            // 
-            this.dgvdelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvdelete.FillWeight = 50F;
-            this.dgvdelete.HeaderText = "";
-            this.dgvdelete.Image = global::Draft.Properties.Resources.delete;
-            this.dgvdelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvdelete.MinimumWidth = 50;
-            this.dgvdelete.Name = "dgvdelete";
-            this.dgvdelete.Width = 50;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,10 +490,6 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -531,11 +512,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private CustomControls.CustomButton customButton1;
         private System.Windows.Forms.Label label6;
@@ -557,5 +535,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn menuID;
         private System.Windows.Forms.DataGridViewImageColumn dgvedit;
         private System.Windows.Forms.DataGridViewImageColumn dgvdelete;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label14;
     }
 }

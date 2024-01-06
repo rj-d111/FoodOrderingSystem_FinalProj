@@ -54,9 +54,6 @@
     <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.UI.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.Utils.1.0.5\lib\net45\Bunifu.Utils.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
@@ -122,6 +119,13 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logout.cs" />
+    <Compile Include="OrderReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderReceipt.Designer.cs">
+      <DependentUpon>OrderReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +136,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Success.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Success.Designer.cs">
+      <DependentUpon>Success.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Components\Widget.resx">
       <DependentUpon>Widget.cs</DependentUpon>
@@ -148,6 +158,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrderReceipt.resx">
+      <DependentUpon>OrderReceipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderSummary.resx">
       <DependentUpon>OrderSummary.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +175,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Success.resx">
+      <DependentUpon>Success.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="grub-grab.bacpac" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -187,6 +204,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Customer.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\check.png" />
+    <None Include="Resources\check %281%29.png" />
     <None Include="Resources\user1.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\logout.png" />
