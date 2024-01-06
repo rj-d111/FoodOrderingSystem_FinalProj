@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Draft;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,11 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using DevOne.Security.Cryptography.BCrypt;
 
-namespace FoodOrderingSystem
+namespace Draft
 {
-    public partial class Login : RoundedForm
+    public partial class Login : Form
     {
         public Login()
         {
@@ -45,14 +45,15 @@ namespace FoodOrderingSystem
 
             try
             {
-                string query = "SELECT * FROM customer WHERE username = @stud AND password = @pass";
+                string query = "SELECT * FROM users WHERE username = @stud";
+                //AND password = @pass
 
                 // Create a SqlCommand object to execute the query
                 using (SqlCommand command = new SqlCommand(query, sqlconn))
                 {
                     // Add parameters to the command to prevent SQL injection
                     command.Parameters.AddWithValue("@stud", stud);
-                    command.Parameters.AddWithValue("@pass", pass);
+                   // command.Parameters.AddWithValue("@pass", pass);
 
                     // Open the connection
                     sqlconn.Open();
@@ -72,9 +73,12 @@ namespace FoodOrderingSystem
                         MessageBox.Show("Login successful!");
 
                         //Get the first name in the index 3
-                        User = dt.Rows[0]["fname"].ToString();
+                        CustomerModel.userID = (int)dt.Rows[0]["userID"];
+                        CustomerModel.StudentID = dt.Rows[0]["username"].ToString();
+                        CustomerModel.Name = dt.Rows[0]["uName"].ToString();
+                        CustomerModel.Phone = dt.Rows[0]["uPhone"].ToString();
                         // Proceed to the next step (e.g., navigate to another form)
-                        Home home = new Home();
+                        FormMain home = new FormMain();
                         this.Hide();
                         home.Show();
                     }

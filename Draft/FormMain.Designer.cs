@@ -31,6 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lbl_uName = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,13 +55,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.pnl_logout = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvdelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -77,12 +83,35 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.panel10);
+            this.panel1.Controls.Add(this.panel9);
+            this.panel1.Controls.Add(this.pnl_logout);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1119, 87);
             this.panel1.TabIndex = 3;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.lbl_uName);
+            this.panel9.Location = new System.Drawing.Point(929, 28);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(129, 27);
+            this.panel9.TabIndex = 3;
+            // 
+            // lbl_uName
+            // 
+            this.lbl_uName.AutoSize = true;
+            this.lbl_uName.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_uName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lbl_uName.ForeColor = System.Drawing.Color.White;
+            this.lbl_uName.Location = new System.Drawing.Point(31, 4);
+            this.lbl_uName.Name = "lbl_uName";
+            this.lbl_uName.Size = new System.Drawing.Size(94, 21);
+            this.lbl_uName.TabIndex = 0;
+            this.lbl_uName.Text = "User Name";
             // 
             // flowLayoutPanel1
             // 
@@ -220,6 +249,7 @@
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -248,6 +278,7 @@
             this.Item,
             this.Qty,
             this.Cost,
+            this.menuID,
             this.dgvedit,
             this.dgvdelete});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -294,6 +325,7 @@
             this.customButton2.Text = "Submit";
             this.customButton2.TextColor = System.Drawing.Color.Empty;
             this.customButton2.UseVisualStyleBackColor = false;
+            this.customButton2.Click += new System.EventHandler(this.SubmitButton_click);
             // 
             // lbl_total
             // 
@@ -355,6 +387,7 @@
             this.dataGridViewImageColumn1.FillWeight = 50F;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = global::Draft.Properties.Resources.pencil__1_;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.MinimumWidth = 50;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 50;
@@ -365,9 +398,33 @@
             this.dataGridViewImageColumn2.FillWeight = 50F;
             this.dataGridViewImageColumn2.HeaderText = "";
             this.dataGridViewImageColumn2.Image = global::Draft.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.MinimumWidth = 50;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 50;
+            // 
+            // panel10
+            // 
+            this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel10.BackgroundImage = global::Draft.Properties.Resources.user1;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel10.Location = new System.Drawing.Point(934, 32);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(27, 23);
+            this.panel10.TabIndex = 3;
+            // 
+            // pnl_logout
+            // 
+            this.pnl_logout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_logout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnl_logout.BackgroundImage = global::Draft.Properties.Resources.logout;
+            this.pnl_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnl_logout.Location = new System.Drawing.Point(1074, 28);
+            this.pnl_logout.Name = "pnl_logout";
+            this.pnl_logout.Size = new System.Drawing.Size(30, 27);
+            this.pnl_logout.TabIndex = 2;
+            this.pnl_logout.Click += new System.EventHandler(this.pnl_logout_Click);
             // 
             // panel2
             // 
@@ -397,6 +454,12 @@
             this.Cost.HeaderText = "Cost";
             this.Cost.Name = "Cost";
             this.Cost.ReadOnly = true;
+            // 
+            // menuID
+            // 
+            this.menuID.HeaderText = "menuID";
+            this.menuID.Name = "menuID";
+            this.menuID.Visible = false;
             // 
             // dgvedit
             // 
@@ -430,8 +493,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormMain";
             this.Text = "FormMain";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.Shown += new System.EventHandler(this.FormMain_Shown);
             this.panel1.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -478,12 +544,17 @@
         private System.Windows.Forms.Label label7;
         private CustomControls.CustomButton customButton2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.Panel pnl_logout;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label lbl_uName;
+        public System.Windows.Forms.DataGridView grid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menuID;
         private System.Windows.Forms.DataGridViewImageColumn dgvedit;
         private System.Windows.Forms.DataGridViewImageColumn dgvdelete;
     }

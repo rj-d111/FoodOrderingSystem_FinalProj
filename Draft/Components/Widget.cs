@@ -13,6 +13,8 @@ namespace Draft.Components
 {
     public partial class Widget : UserControl
     {
+        public int MenuID { get; set; } // Add a property to store the menuID or unique identifier
+        public int Qty { get; set; }
         public categories _category;
 
         public event EventHandler OnSelect = null;
@@ -35,6 +37,28 @@ namespace Draft.Components
         private void Picture_Click(object sender, EventArgs e)
         {
             OnSelect?.Invoke(this, e);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_plus_Click(object sender, EventArgs e)
+        {
+            Qty++;
+            OnSelect?.Invoke(this, e);
+            lbl_qty.Text = Qty.ToString();
+        }
+
+        private void lbl_minus_Click(object sender, EventArgs e)
+        {
+            if(Qty > 0)
+            {
+            Qty--;
+            OnSelect?.Invoke(this, e);
+            lbl_qty.Text = Qty.ToString();
+            }
         }
     }
 }

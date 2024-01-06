@@ -10,9 +10,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FoodOrderingSystem
+namespace Draft
 {
-    public partial class Create_Account : RoundedForm
+    public partial class Create_Account : Form
     {
         public Create_Account()
         {
@@ -103,7 +103,7 @@ namespace FoodOrderingSystem
 
                 try
                 {
-                    string query = "INSERT INTO users (fname, lname, username, phone, password) VALUES (@fname, @lname, @stud_id, @phone, @password)";
+                    string query = "INSERT INTO customer (fname, lname, username, phone, password) VALUES (@fname, @lname, @stud_id, @phone, @password)";
 
                     // Create a SqlCommand object to execute the query
                     using (SqlCommand command = new SqlCommand(query, sqlconn))

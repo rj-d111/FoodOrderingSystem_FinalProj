@@ -1,4 +1,4 @@
-﻿namespace FoodOrderingSystem
+﻿namespace Draft
 {
     partial class Login
     {
@@ -36,10 +36,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.customButton1 = new FoodOrderingSystem.CustomButton();
-            this.roundedPanel2 = new FoodOrderingSystem.RoundedPanel();
+            this.customButton1 = new Draft.CustomButton();
+            this.roundedPanel2 = new Draft.RoundedPanel();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.roundedPanel1 = new FoodOrderingSystem.RoundedPanel();
+            this.roundedPanel1 = new Draft.RoundedPanel();
             this.txt_stud = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_close = new System.Windows.Forms.Panel();
@@ -212,7 +212,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackgroundImage = global::FoodOrderingSystem.Properties.Resources.Cafeteria_021;
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.btn_close);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -224,7 +224,7 @@
             // btn_close
             // 
             this.btn_close.BackColor = System.Drawing.Color.Transparent;
-            this.btn_close.BackgroundImage = global::FoodOrderingSystem.Properties.Resources.close;
+            this.btn_close.BackgroundImage = global::Draft.Properties.Resources.close;
             this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_close.Location = new System.Drawing.Point(294, 3);
