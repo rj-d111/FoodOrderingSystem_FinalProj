@@ -103,7 +103,7 @@ namespace Draft
 
                 try
                 {
-                    string query = "INSERT INTO customer (fname, lname, username, phone, password) VALUES (@fname, @lname, @stud_id, @phone, @password)";
+                    string query = "INSERT INTO users (uName, lName, username, uPhone, password) VALUES (@fname, @lname, @stud_id, @phone, @password)";
 
                     // Create a SqlCommand object to execute the query
                     using (SqlCommand command = new SqlCommand(query, sqlconn))
@@ -123,11 +123,14 @@ namespace Draft
 
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine("Customer inserted successfully!");
+                            MessageBox.Show("Customer registered successfully!");
+                            Login loginForm = new Login();
+                            this.Hide(); // Hide the current form
+                            loginForm.Show(); // Show the Login form
                         }
                         else
                         {
-                            Console.WriteLine("Error inserting customer.");
+                            MessageBox.Show("Customer registration failed, please try again later.");
                         }
                     }
                 }
@@ -153,8 +156,8 @@ namespace Draft
             if (result == DialogResult.Yes)
             {
                 // Navigate to the Login class
-                this.Hide(); // Hide the current form
                 Login loginForm = new Login();
+                this.Hide(); // Hide the current form
                 loginForm.Show(); // Show the Login form
             }
         }

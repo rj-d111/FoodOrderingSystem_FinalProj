@@ -10,6 +10,7 @@ namespace Draft
     {
         public static int userID { get; set; }
         public static string Name { get; set; }
+        public static string lName { get; set; }
         public static string StudentID { get; set; }
         public static string Phone { get; set; }
 
@@ -19,5 +20,7 @@ namespace Draft
     {
         public static int OrderID { get; set; } 
         public static double OrderTotal { get; set; }
+        public static double TenderAmount { get; set; }
+        public static DateTime PaymentDate { get; set; }
     }
 }

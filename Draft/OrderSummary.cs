@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TheArtOfDev.HtmlRenderer.Adapters.RGraphicsPath;
 
 namespace Draft
 {
     public partial class OrderSummary : Form
     {
-        public static double TextAmount { get; set; }
         Connection conn = new Connection();
         SqlConnection connection = new SqlConnection();
         public OrderSummary()
@@ -49,8 +49,8 @@ namespace Draft
                     }
                 }
 
-                }
             }
+        }
 
         private void pnl_logout_Click(object sender, EventArgs e)
         {
@@ -80,8 +80,8 @@ namespace Draft
 
         private void customButton2_Click(object sender, EventArgs e)
         {
-            TextAmount = double.Parse(txt_amount.Text);
-            double change = TextAmount - OrderModel.OrderTotal;
+            OrderModel.TenderAmount = double.Parse(txt_amount.Text);
+            double change = OrderModel.TenderAmount - OrderModel.OrderTotal;
 
             if (change < 0)
             {
@@ -90,10 +90,52 @@ namespace Draft
             else
             {
                 MessageBox.Show("Successfully paid. Your change is ₱" + change + ".00");
+                InsertInPaymentTable();
                 Success success = new Success();
                 success.Show();
                 this.Hide();
             }
+        }
+
+        private void InsertInPaymentTable()
+        {
+            string sql = @"INSERT INTO payments (orderID, payment_date, amount_paid, payment_method)
+                       VALUES (@orderID, @payment_date, @amount_paid, @payment_method)";
+
+            //Insert the date today
+            OrderModel.PaymentDate = DateTime.Now;
+
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                // Set parameters for security and to avoid SQL injection
+                command.Parameters.Add("@orderID", SqlDbType.Int).Value = OrderModel.OrderID;
+                command.Parameters.Add("@payment_date", SqlDbType.DateTime).Value = DateTime.Now;
+                command.Parameters.Add("@amount_paid", SqlDbType.Decimal).Value = OrderModel.TenderAmount;
+                command.Parameters.Add("@payment_method", SqlDbType.VarChar).Value = GetSelectedPaymentMethod();
+
+                // Open the connection and execute the command
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Payment inserted successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Payment insertion failed.");
+                }
+            }
+        }
+
+        private string GetSelectedPaymentMethod()
+        {
+            string paymentMethod = "";
+            if(radioButton1.Checked)
+                paymentMethod = radioButton1.Text;
+            if(radioButton2.Checked)
+                paymentMethod = radioButton2.Text;
+
+            return paymentMethod;
         }
     }
 }

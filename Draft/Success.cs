@@ -29,5 +29,17 @@ namespace Draft
             lbl_hey.Text = "Hey, " + CustomerModel.Name;
             lbl_uName.Text = CustomerModel.Name;
         }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            FormMain formMain = new FormMain();
+            formMain.Show();
+            this.Hide();
+        }
+
+        private void pnl_logout_Click(object sender, EventArgs e)
+        {
+            Logout.ShowLogoutConfirmation(this);
+        }
     }
 }

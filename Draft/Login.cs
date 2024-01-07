@@ -45,15 +45,15 @@ namespace Draft
 
             try
             {
-                string query = "SELECT * FROM users WHERE username = @stud";
-                //AND password = @pass
+                string query = "SELECT * FROM users WHERE username = @stud AND password = @pass";
+               
 
                 // Create a SqlCommand object to execute the query
                 using (SqlCommand command = new SqlCommand(query, sqlconn))
                 {
                     // Add parameters to the command to prevent SQL injection
                     command.Parameters.AddWithValue("@stud", stud);
-                   // command.Parameters.AddWithValue("@pass", pass);
+                    command.Parameters.AddWithValue("@pass", pass);
 
                     // Open the connection
                     sqlconn.Open();
@@ -76,6 +76,7 @@ namespace Draft
                         CustomerModel.userID = (int)dt.Rows[0]["userID"];
                         CustomerModel.StudentID = dt.Rows[0]["username"].ToString();
                         CustomerModel.Name = dt.Rows[0]["uName"].ToString();
+                        CustomerModel.lName = dt.Rows[0]["lName"].ToString();
                         CustomerModel.Phone = dt.Rows[0]["uPhone"].ToString();
                         // Proceed to the next step (e.g., navigate to another form)
                         FormMain home = new FormMain();

@@ -197,13 +197,6 @@
     <None Include="Resources\grub-grab.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Customer.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Customer_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Customer.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\check.png" />
     <None Include="Resources\check %281%29.png" />
     <None Include="Resources\user1.png" />

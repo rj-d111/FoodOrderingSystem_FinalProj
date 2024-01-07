@@ -56,7 +56,7 @@
             this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvdelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.customButton2 = new Draft.CustomControls.CustomButton();
+            this.checkoutbutton = new Draft.CustomControls.CustomButton();
             this.lbl_total = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.customButton1 = new Draft.CustomControls.CustomButton();
@@ -156,7 +156,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 87);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 363);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 467);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel3
@@ -262,8 +262,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel8);
             this.splitContainer1.Panel2.Controls.Add(this.customButton1);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
-            this.splitContainer1.Size = new System.Drawing.Size(919, 363);
-            this.splitContainer1.SplitterDistance = 448;
+            this.splitContainer1.Size = new System.Drawing.Size(919, 467);
+            this.splitContainer1.SplitterDistance = 464;
             this.splitContainer1.TabIndex = 4;
             // 
             // flowLayoutPanel2
@@ -272,7 +272,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(448, 363);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(464, 467);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // grid
@@ -309,10 +309,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.grid.GridColor = System.Drawing.Color.White;
-            this.grid.Location = new System.Drawing.Point(4, 47);
+            this.grid.Location = new System.Drawing.Point(16, 47);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(460, 207);
+            this.grid.Size = new System.Drawing.Size(432, 292);
             this.grid.TabIndex = 4;
+            this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             this.grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellValueChanged);
             this.grid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.grid_RowsAdded);
             // 
@@ -349,6 +350,7 @@
             this.dgvedit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvedit.MinimumWidth = 50;
             this.dgvedit.Name = "dgvedit";
+            this.dgvedit.Visible = false;
             this.dgvedit.Width = 50;
             // 
             // dgvdelete
@@ -364,33 +366,34 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.customButton2);
+            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel8.Controls.Add(this.checkoutbutton);
             this.panel8.Controls.Add(this.lbl_total);
             this.panel8.Controls.Add(this.label7);
-            this.panel8.Location = new System.Drawing.Point(3, 260);
+            this.panel8.Location = new System.Drawing.Point(-5, 359);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(464, 100);
+            this.panel8.Size = new System.Drawing.Size(464, 108);
             this.panel8.TabIndex = 3;
             // 
-            // customButton2
+            // checkoutbutton
             // 
-            this.customButton2.BackColor = System.Drawing.Color.Maroon;
-            this.customButton2.BackgroundColor = System.Drawing.Color.Empty;
-            this.customButton2.BorderColor = System.Drawing.Color.Transparent;
-            this.customButton2.BorderRadius = 10;
-            this.customButton2.borderSize = 0;
-            this.customButton2.FlatAppearance.BorderSize = 0;
-            this.customButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton2.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.customButton2.ForeColor = System.Drawing.Color.White;
-            this.customButton2.Location = new System.Drawing.Point(-1, 54);
-            this.customButton2.Name = "customButton2";
-            this.customButton2.Size = new System.Drawing.Size(465, 46);
-            this.customButton2.TabIndex = 4;
-            this.customButton2.Text = "Checkout";
-            this.customButton2.TextColor = System.Drawing.Color.Empty;
-            this.customButton2.UseVisualStyleBackColor = false;
-            this.customButton2.Click += new System.EventHandler(this.SubmitButton_click);
+            this.checkoutbutton.BackColor = System.Drawing.Color.Maroon;
+            this.checkoutbutton.BackgroundColor = System.Drawing.Color.Empty;
+            this.checkoutbutton.BorderColor = System.Drawing.Color.Transparent;
+            this.checkoutbutton.BorderRadius = 10;
+            this.checkoutbutton.borderSize = 0;
+            this.checkoutbutton.FlatAppearance.BorderSize = 0;
+            this.checkoutbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkoutbutton.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.checkoutbutton.ForeColor = System.Drawing.Color.White;
+            this.checkoutbutton.Location = new System.Drawing.Point(8, 55);
+            this.checkoutbutton.Name = "checkoutbutton";
+            this.checkoutbutton.Size = new System.Drawing.Size(445, 46);
+            this.checkoutbutton.TabIndex = 4;
+            this.checkoutbutton.Text = "Checkout";
+            this.checkoutbutton.TextColor = System.Drawing.Color.Empty;
+            this.checkoutbutton.UseVisualStyleBackColor = false;
+            this.checkoutbutton.Click += new System.EventHandler(this.CheckoutButton_Click);
             // 
             // lbl_total
             // 
@@ -426,7 +429,7 @@
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton1.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.customButton1.ForeColor = System.Drawing.Color.Maroon;
-            this.customButton1.Location = new System.Drawing.Point(379, 13);
+            this.customButton1.Location = new System.Drawing.Point(363, 13);
             this.customButton1.Name = "customButton1";
             this.customButton1.Size = new System.Drawing.Size(85, 28);
             this.customButton1.TabIndex = 2;
@@ -472,7 +475,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 450);
+            this.ClientSize = new System.Drawing.Size(1119, 554);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
@@ -520,7 +523,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label lbl_total;
         private System.Windows.Forms.Label label7;
-        private CustomControls.CustomButton customButton2;
+        private CustomControls.CustomButton checkoutbutton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
@@ -529,13 +532,13 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label lbl_uName;
         public System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn menuID;
         private System.Windows.Forms.DataGridViewImageColumn dgvedit;
         private System.Windows.Forms.DataGridViewImageColumn dgvdelete;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label14;
     }
 }

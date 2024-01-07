@@ -29,15 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbl_uName = new System.Windows.Forms.Label();
+            this.pnl_logout = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -46,11 +51,6 @@
             this.customButton1 = new Draft.CustomButton();
             this.label5 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.pnl_logout = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -72,6 +72,17 @@
             this.panel1.Size = new System.Drawing.Size(1119, 87);
             this.panel1.TabIndex = 5;
             // 
+            // panel10
+            // 
+            this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel10.BackgroundImage = global::Draft.Properties.Resources.user1;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel10.Location = new System.Drawing.Point(934, 32);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(27, 23);
+            this.panel10.TabIndex = 3;
+            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.lbl_uName);
@@ -91,6 +102,29 @@
             this.lbl_uName.Size = new System.Drawing.Size(94, 21);
             this.lbl_uName.TabIndex = 0;
             this.lbl_uName.Text = "User Name";
+            // 
+            // pnl_logout
+            // 
+            this.pnl_logout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_logout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnl_logout.BackgroundImage = global::Draft.Properties.Resources.logout;
+            this.pnl_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnl_logout.Location = new System.Drawing.Point(1074, 28);
+            this.pnl_logout.Name = "pnl_logout";
+            this.pnl_logout.Size = new System.Drawing.Size(30, 27);
+            this.pnl_logout.TabIndex = 2;
+            this.pnl_logout.Click += new System.EventHandler(this.pnl_logout_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.BackgroundImage = global::Draft.Properties.Resources.grub_grab;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel2.Location = new System.Drawing.Point(472, 9);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(104, 71);
+            this.panel2.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
@@ -116,6 +150,15 @@
             this.panel3.Size = new System.Drawing.Size(197, 51);
             this.panel3.TabIndex = 0;
             // 
+            // panel8
+            // 
+            this.panel8.BackgroundImage = global::Draft.Properties.Resources.check__1_;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel8.Location = new System.Drawing.Point(13, 16);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(22, 20);
+            this.panel8.TabIndex = 1;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -136,16 +179,14 @@
             this.panel4.Size = new System.Drawing.Size(197, 51);
             this.panel4.TabIndex = 1;
             // 
-            // label7
+            // panel11
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(9, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 21);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "➡️";
+            this.panel11.BackgroundImage = global::Draft.Properties.Resources.check__1_;
+            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel11.Location = new System.Drawing.Point(13, 16);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(22, 20);
+            this.panel11.TabIndex = 2;
             // 
             // label4
             // 
@@ -166,6 +207,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(197, 51);
             this.panel5.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(9, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 21);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "➡️";
             // 
             // label14
             // 
@@ -232,6 +284,7 @@
             this.customButton1.Text = "Continue Ordering";
             this.customButton1.TextColor = System.Drawing.Color.Empty;
             this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // label5
             // 
@@ -253,57 +306,6 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(107, 105);
             this.panel12.TabIndex = 2;
-            // 
-            // panel8
-            // 
-            this.panel8.BackgroundImage = global::Draft.Properties.Resources.check__1_;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel8.Location = new System.Drawing.Point(13, 16);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(22, 20);
-            this.panel8.TabIndex = 1;
-            // 
-            // panel11
-            // 
-            this.panel11.BackgroundImage = global::Draft.Properties.Resources.check__1_;
-            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel11.Location = new System.Drawing.Point(13, 16);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(22, 20);
-            this.panel11.TabIndex = 2;
-            // 
-            // panel10
-            // 
-            this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel10.BackgroundImage = global::Draft.Properties.Resources.user1;
-            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel10.Location = new System.Drawing.Point(934, 32);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(27, 23);
-            this.panel10.TabIndex = 3;
-            // 
-            // pnl_logout
-            // 
-            this.pnl_logout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnl_logout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnl_logout.BackgroundImage = global::Draft.Properties.Resources.logout;
-            this.pnl_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnl_logout.Location = new System.Drawing.Point(1074, 28);
-            this.pnl_logout.Name = "pnl_logout";
-            this.pnl_logout.Size = new System.Drawing.Size(30, 27);
-            this.pnl_logout.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BackgroundImage = global::Draft.Properties.Resources.grub_grab;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(472, 9);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(104, 71);
-            this.panel2.TabIndex = 1;
             // 
             // Success
             // 

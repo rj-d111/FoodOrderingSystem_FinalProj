@@ -17,11 +17,25 @@ namespace Draft
     {
         Connection conn = new Connection();
         SqlConnection conn2 = new SqlConnection();
-        public static double TotalOrder {  get; set; }
+        private double totalOrder;
+
+        public double TotalOrder {  get => totalOrder; set
+            {
+                totalOrder = value;
+                // Update the checkout button status when TotalOrder changes
+                UpdateCheckoutButtonStatus();
+            }
+        }
 
         public FormMain()
         {
             InitializeComponent();
+        }
+
+        private void UpdateCheckoutButtonStatus()
+        {
+            // Enable the checkout button if TotalOrder is greater than 0, otherwise disable it
+            checkoutbutton.Enabled = (TotalOrder > 0) ? true : false;
         }
 
         public void AddItem(string name, double cost, categories category, string icon, int menuID)
@@ -134,6 +148,16 @@ namespace Draft
 
         private void customButton1_Click(object sender, EventArgs e)
         {
+            foreach (Control control in flowLayoutPanel2.Controls)
+            {
+                // Check if the control is a Widget
+                if (control is Widget widget)
+                {
+                    // Reset the cost label to 0
+                    widget.Qty = 0; // Reset the quantity to 0
+                    widget.lbl_qty.Text = "0";
+                }
+            }
             grid.Rows.Clear();
             CalculateTotal();
             grid.Refresh();
@@ -149,7 +173,7 @@ namespace Draft
             CalculateTotal();
         }
 
-        private void SubmitButton_click(object sender, EventArgs e)
+        private void CheckoutButton_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(
             //String.Join("\n", CustomerModel.StudentID, CustomerModel.Name, CustomerModel.Phone));
@@ -206,21 +230,7 @@ namespace Draft
         private void pnl_logout_Click(object sender, EventArgs e)
         {
 
-            
-            // Display confirmation message
-            if (MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                // Clear CustomerModel properties
-                CustomerModel.Name = null;
-                CustomerModel.userID = 0;
-                CustomerModel.StudentID = null;
-                CustomerModel.Phone = null;
-
-                // Navigate back to Login form
-                Login loginForm = new Login();
-                this.Hide();
-                loginForm.Show();
-            }
+            Logout.ShowLogoutConfirmation(this);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -230,5 +240,40 @@ namespace Draft
 
 
         }
+
+        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grid.CurrentCell.OwningColumn.Name == "dgvdelete")
+            {
+                // Display confirmation message box
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Reset quantity of the selected Widget to 0
+                    ResetWidgetQuantity();
+
+                    // Delete the selected row
+                    grid.Rows.RemoveAt(grid.CurrentRow.Index);
+                    CalculateTotal();
+                }
+            }
+        }
+        private void ResetWidgetQuantity()
+        {
+            foreach (Widget widget in flowLayoutPanel2.Controls.OfType<Widget>())
+            {
+                // Find the Widget with the matching MenuID
+                if (widget.MenuID == (int)grid.CurrentRow.Cells["MenuID"].Value)
+                {
+                    widget.Qty = 0; // Reset the quantity to 0
+                    widget.lbl_qty.Text = "0";
+                    return; // No need to continue searching
+                }
+            }
+        }
+
     }
 }
+
+
